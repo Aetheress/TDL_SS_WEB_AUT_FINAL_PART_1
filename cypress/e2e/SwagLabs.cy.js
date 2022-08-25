@@ -1,5 +1,6 @@
 import HomePage from "../pageObjects/Home.page";
 import LoginPage from "../pageObjects/Login.page";
+import ItemPage from "../pageObjects/Item.page";
 
 describe("Swag Labs", () => {
   beforeEach(() => {
@@ -48,5 +49,15 @@ describe("Swag Labs", () => {
       HomePage.filter.select("Name (Z to A)");
       HomePage.nameOfItemAtIndex(1).should("have.text", "Test.allTheThings() T-Shirt (Red)");
     })
+    //Scenario 7
+    it("Validate shopping cart badge amount", () => {
+      HomePage.itemOfName("Sauce Labs Bolt T-Shirt").click();
+      ItemPage.addToCart.click();
+      ItemPage.shoppingCartBadge.should("have.text", 1);
+      ItemPage.back.click();
+      HomePage.itemOfName("Sauce Labs Bike Light").click();
+      ItemPage.addToCart.click();
+      ItemPage.shoppingCartBadge.should("have.text", 2);
+    });
   })
 });
