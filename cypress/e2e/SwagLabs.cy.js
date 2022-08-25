@@ -70,7 +70,7 @@ describe("Swag Labs", () => {
       HomePage.shoppingCartBadge.should("not.exist");
     })
     //Scenario 9
-    it.only("Validate shopping cart remove button functionality", () => {
+    it("Validate shopping cart remove button functionality", () => {
       HomePage.itemOfName("Sauce Labs Bolt T-Shirt").click();
       ItemPage.addToCart.click();
       ItemPage.shoppingCartBadge.should("have.text", 1);
