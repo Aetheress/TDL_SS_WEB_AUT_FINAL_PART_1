@@ -13,6 +13,9 @@ class ItemPage extends BasePage {
     static get remove() {
         return cy.get(`.btn_inventory`).contains("Remove");
     }
+    static get shoppingCart() {
+        return cy.get(`.shopping_cart_link`);
+    }
 }
 
 export default ItemPage;

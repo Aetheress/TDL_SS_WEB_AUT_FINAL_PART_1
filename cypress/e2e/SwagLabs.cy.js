@@ -1,6 +1,10 @@
 import HomePage from "../pageObjects/Home.page";
 import LoginPage from "../pageObjects/Login.page";
 import ItemPage from "../pageObjects/Item.page";
+import ShoppingCartPage from "../pageObjects/ShoppingCart.page";
+import CheckoutPage from "../pageObjects/Checkout.page";
+import OverviewPage from "../pageObjects/Overview.page";
+import OrderCompletionPage from "../pageObjects/OrderCompletion.page";
 
 describe("Swag Labs", () => {
   beforeEach(() => {
@@ -76,6 +80,20 @@ describe("Swag Labs", () => {
       ItemPage.shoppingCartBadge.should("have.text", 1);
       ItemPage.remove.click();
       ItemPage.shoppingCartBadge.should("not.exist");
+    });
+    //Scenario 10
+    it("Buy a T-shirt", () => {
+      HomePage.itemOfName("Test.allTheThings() T-Shirt (Red)").click();
+      ItemPage.addToCart.click();
+      ItemPage.shoppingCart.click();
+      ShoppingCartPage.checkout.click();
+      CheckoutPage.firstName.type("Ulvis");
+      CheckoutPage.lastName.type("Blathens");
+      CheckoutPage.postalCode.type("XX-1234");
+      CheckoutPage.continue.click();
+      OverviewPage.items.should("contain.text", "Test.allTheThings() T-Shirt (Red)");
+      OverviewPage.finish.click();
+      OrderCompletionPage.message.should("have.text", "THANK YOU FOR YOUR ORDER");
     })
   })
 });
