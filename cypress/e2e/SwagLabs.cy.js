@@ -31,5 +31,10 @@ describe("Swag Labs", () => {
     it("Validate item amount", () => {
       HomePage.items.should("have.length", 6);
     });
+    //Scenario 4
+    it("Sort items - Price high to low", () => {
+      HomePage.filter.select("Price (high to low)");
+      HomePage.nameOfItemAtIndex(1).should("have.text", "Sauce Labs Fleece Jacket");
+    })
   })
 });

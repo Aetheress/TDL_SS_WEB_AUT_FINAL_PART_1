@@ -5,8 +5,16 @@ class HomePage extends BasePage {
     return "/inventory.html";
   }
 
-  static get xxx() {
-    return cy.get("x[y=z]");
+  static get items() {
+    return cy.get(`.inventory_item`);
+  }
+
+  static get filter() {
+    return cy.get(`.product_sort_container`);
+  }
+
+  static nameOfItemAtIndex(i) {
+    return cy.get(`.inventory_item:nth-child(${i}) .inventory_item_name`);
   }
 }
 

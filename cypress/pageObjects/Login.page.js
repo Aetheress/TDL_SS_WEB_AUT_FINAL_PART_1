@@ -6,7 +6,7 @@ class LoginPage extends BasePage {
   }
 
   static get username() {
-    return cy.get("#user-name");
+    return cy.get(`#user-name`);
   }
 
   static get password() {
