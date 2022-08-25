@@ -16,6 +16,10 @@ class HomePage extends BasePage {
   static nameOfItemAtIndex(i) {
     return cy.get(`.inventory_item:nth-child(${i}) .inventory_item_name`);
   }
+
+  static priceOfItemAtIndex(i) {
+    return cy.get(`.inventory_item:nth-child(${i}) .inventory_item_price`);
+  }
 }
 
 export default HomePage;

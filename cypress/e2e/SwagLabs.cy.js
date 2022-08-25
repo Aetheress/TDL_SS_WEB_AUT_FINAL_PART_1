@@ -35,6 +35,13 @@ describe("Swag Labs", () => {
     it("Sort items - Price high to low", () => {
       HomePage.filter.select("Price (high to low)");
       HomePage.nameOfItemAtIndex(1).should("have.text", "Sauce Labs Fleece Jacket");
+      HomePage.priceOfItemAtIndex(1).should("have.text", "$49.99")
+    })
+    //Scenario 5
+    it("Sort items - Price low to high", () => {
+      HomePage.filter.select("Price (low to high)");
+      HomePage.nameOfItemAtIndex(1).should("have.text", "Sauce Labs Onesie");
+      HomePage.priceOfItemAtIndex(1).should("have.text", "$7.99");
     })
   })
 });
