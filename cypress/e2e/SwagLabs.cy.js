@@ -59,5 +59,15 @@ describe("Swag Labs", () => {
       ItemPage.addToCart.click();
       ItemPage.shoppingCartBadge.should("have.text", 2);
     });
+    //Scenario 8
+    it("Reset App State", () => {
+      HomePage.itemOfName("Sauce Labs Bolt T-Shirt").click();
+      ItemPage.addToCart.click();
+      ItemPage.back.click();
+      HomePage.shoppingCartBadge.should("have.text", 1);
+      HomePage.menu.click();
+      HomePage.reset.click();
+      HomePage.shoppingCartBadge.should("not.exist");
+    })
   })
 });
