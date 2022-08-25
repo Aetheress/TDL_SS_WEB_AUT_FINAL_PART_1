@@ -43,5 +43,10 @@ describe("Swag Labs", () => {
       HomePage.nameOfItemAtIndex(1).should("have.text", "Sauce Labs Onesie");
       HomePage.priceOfItemAtIndex(1).should("have.text", "$7.99");
     })
+    //Scenario 6
+    it("Sort items - Name (Z to A)", () => {
+      HomePage.filter.select("Name (Z to A)");
+      HomePage.nameOfItemAtIndex(1).should("have.text", "Test.allTheThings() T-Shirt (Red)");
+    })
   })
 });

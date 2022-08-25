@@ -13,7 +13,9 @@ class HomePage extends BasePage {
     return cy.get(`.product_sort_container`);
   }
 
-  static nameOfItemAtIndex(i) {
+  //if no parameter supplied, looks at first item
+  //i'm still gonna supply it though
+  static nameOfItemAtIndex(i=1) {
     return cy.get(`.inventory_item:nth-child(${i}) .inventory_item_name`);
   }
 
